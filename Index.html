@@ -1,0 +1,958 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shruti Patode | Portfolio</title>
+
+    <style>
+        :root {
+            --bg: #0b1020;
+            --card: #131b30;
+            --text: #f5f7ff;
+            --muted: #aab5cf;
+            --accent: #8b7cff;
+            --cyan: #48d9c2;
+            --border: #29344e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(11, 16, 32, 0.94);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 23px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        /* BUTTONS */
+
+        .btn {
+            display: inline-block;
+            padding: 12px 23px;
+            border-radius: 9px;
+            font-weight: 700;
+            margin: 10px 8px 0 0;
+            transition: 0.3s;
+            cursor: pointer;
+            border: 1px solid var(--cyan);
+        }
+
+        .btn-primary {
+            background: var(--cyan);
+            color: #0b1020;
+        }
+
+        .btn-outline {
+            color: var(--cyan);
+            background: transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 85vh;
+            display: grid;
+            grid-template-columns: 1.4fr 0.6fr;
+            align-items: center;
+            gap: 50px;
+            padding-top: 65px;
+            padding-bottom: 65px;
+        }
+
+        .eyebrow {
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 68px);
+            line-height: 1.15;
+            margin: 18px 0;
+        }
+
+        .hero h1 span {
+            color: var(--cyan);
+        }
+
+        .hero h3 {
+            color: var(--muted);
+            font-size: 21px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 600px;
+        }
+
+        .profile {
+            width: 260px;
+            height: 260px;
+            margin: auto;
+            border-radius: 35% 65% 58% 42%;
+            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            display: grid;
+            place-items: center;
+            font-size: 75px;
+            font-weight: 900;
+            color: #10162a;
+            box-shadow: 0 0 65px rgba(139, 124, 255, 0.2);
+        }
+
+        /* COMMON SECTIONS */
+
+        section {
+            padding: 85px 0;
+        }
+
+        .section-title {
+            font-size: clamp(30px, 4vw, 42px);
+            margin: 8px 0 12px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 680px;
+            margin-bottom: 35px;
+        }
+
+        .accent {
+            color: var(--cyan);
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 28px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .card p {
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+        .highlights {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .highlights li {
+            margin: 12px 0;
+        }
+
+        .highlights li::before {
+            content: "✦ ";
+            color: var(--cyan);
+        }
+
+        /* SKILLS */
+
+        .skill-group {
+            margin-bottom: 28px;
+        }
+
+        .skill-group h3 {
+            margin-bottom: 15px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            background: #1b2640;
+            border: 1px solid #35415f;
+            color: #e5eaff;
+            padding: 9px 16px;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* PROJECTS */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3,
+        .experience-card h3,
+        .certificate-card h3 {
+            color: var(--cyan);
+            font-size: 21px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .tag {
+            font-size: 12px;
+            color: var(--cyan);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 4px 9px;
+        }
+
+        /* EXPERIENCE */
+
+        .timeline {
+            border-left: 2px solid var(--accent);
+            padding-left: 25px;
+            margin-left: 10px;
+        }
+
+        .experience-card {
+            position: relative;
+            margin-bottom: 22px;
+        }
+
+        .experience-card::before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--cyan);
+            left: -32px;
+            top: 35px;
+        }
+
+        .duration {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--cyan);
+        }
+
+        /* CERTIFICATIONS */
+
+        .certificate-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .certificate-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .certificate-card .btn {
+            margin-top: auto;
+        }
+
+        /* EDUCATION */
+
+        .education-card {
+            border-left: 4px solid var(--cyan);
+        }
+
+        /* CONTACT */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.fr 1.2fr;
+            gap: 25px;
+        }
+
+        .contact-item {
+            margin: 20px 0;
+        }
+
+        .contact-item span {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .contact-item a {
+            overflow-wrap: anywhere;
+        }
+
+        .contact-item a:hover {
+            color: var(--cyan);
+        }
+
+        form label {
+            display: block;
+            margin-top: 14px;
+            font-size: 14px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 13px;
+            margin-top: 7px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            border-radius: 9px;
+            color: white;
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            outline: 1px solid var(--cyan);
+        }
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+        }
+
+        /* ANIMATION */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 850px) {
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin: auto;
+            }
+
+            .hero-content {
+                order: 2;
+            }
+
+            .profile {
+                width: 190px;
+                height: 190px;
+                font-size: 55px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                width: 90%;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: relative;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 20px;
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                flex-direction: column;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 15px;
+            }
+
+            .about-grid,
+            .grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Shruti<span>.</span></a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="menu-btn" id="menuBtn"
+                    aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HOME -->
+        <section class="container hero" id="home">
+            <div class="hero-content reveal">
+                <p class="eyebrow">Welcome to my portfolio</p>
+
+                <h1>Hi, I'm <span>Shruti Patode</span></h1>
+
+                <h3>Web Developer | Android Developer | Data Analytics Learner</h3>
+
+                <p>
+                    I'm a Computer Engineering student passionate about
+                    creating responsive websites, developing Android
+                    applications, and exploring data analytics with Python,
+                    NumPy, and Excel.
+                </p>
+
+                <a href="#projects" class="btn btn-primary">Explore My Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+
+            <div class="profile reveal" aria-label="Shruti Patode initials">
+                SP
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="container">
+                <p class="eyebrow">Get to know me</p>
+                <h2 class="section-title">About <span class="accent">Me</span></h2>
+
+                <p class="section-description">
+                    A little introduction about my education, interests,
+                    and career goals.
+                </p>
+
+                <div class="about-grid">
+                    <div class="card reveal">
+                        <h3>Who I Am</h3>
+                        <p>
+                            I am a second-year BE Computer Engineering student
+                            interested in web development, Android application
+                            development, and data analytics. I enjoy learning
+                            new technologies and applying them in practical projects.
+                        </p>
+                    </div>
+
+                    <div class="card reveal">
+                        <h3>My Career Goals</h3>
+                        <ul class="highlights">
+                            <li>Build useful and responsive websites.</li>
+                            <li>Develop user-friendly Android applications.</li>
+                            <li>Strengthen Python and data analytics skills.</li>
+                            <li>Gain practical experience through real projects.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <div class="container">
+                <p class="eyebrow">What I work with</p>
+                <h2 class="section-title">My <span class="accent">Skills</span></h2>
+
+                <p class="section-description">
+                    Technologies and tools I have learned and practised.
+                </p>
+
+                <div class="card reveal">
+                    <div class="skill-group">
+                        <h3>Web Development</h3>
+                        <div class="skill-list">
+                            <span class="skill">HTML5</span>
+                            <span class="skill">CSS3</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">Responsive Design</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Programming</h3>
+                        <div class="skill-list">
+                            <span class="skill">Python</span>
+                            <span class="skill">NumPy</span>
+                            <span class="skill">Java</span>
+                            
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Data Analytics</h3>
+                        <div class="skill-list">
+                            <span class="skill">Microsoft Excel</span>
+                            <span class="skill">Data Analysis</span>
+                            <span class="skill">Generative AI Fundamentals</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Mobile Development & Tools</h3>
+                        <div class="skill-list">
+                            <span class="skill">Android Studio</span>
+                            <span class="skill">XML</span>
+                            <span class="skill">SQL</span>
+                            <span class="skill">MySQL</span>
+                            <span class="skill">Git</span>
+                            <span class="skill">GitHub</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="container">
+                <p class="eyebrow">Things I've built</p>
+                <h2 class="section-title">My <span class="accent">Projects</span></h2>
+
+                <p class="section-description">
+                    Projects that demonstrate my interest in application
+                    development and practical problem-solving.
+                </p>
+
+                <div class="grid">
+                    <article class="card project-card reveal">
+                        <div class="project-icon">💬</div>
+                        <h3>WhatsApp Clone</h3>
+                        <p>
+                            An Android application project created to practise
+                            mobile user-interface development and app structure.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">XML</span>
+                            <span class="tag">Android Studio</span>
+                        </div>
+                    </article>
+
+                    <article class="card project-card reveal">
+                        <div class="project-icon">♻️</div>
+                        <h3>CleanCity</h3>
+                        <p>
+                            A location-based waste management application.
+                            Users can report garbage complaints, administrators
+                            can assign them, and workers can manage assigned tasks.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">XML</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">GPS</span>
+                        </div>
+                    </article>
+
+                    <article class="card project-card reveal">
+                        <div class="project-icon">📊</div>
+                        <h3>Data Analytics Project </h3>
+                        <p>
+                             A data analytics project that analyzes student marks,
+    calculates total marks, averages, and percentages,
+    identifies the highest and lowest scorers, and
+    generates performance reports using Python, NumPy,
+    and Excel.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">NumPy</span>
+                            <span class="tag">Excel</span>
+                        </div>
+                    </article>
+
+                    <article class="card project-card reveal">
+                        <div class="project-icon">🌐</div>
+                        <h3>Personal Portfolio</h3>
+                        <p>
+                            A responsive personal website to showcase my
+                            skills, projects, experience, and certifications.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <div class="container">
+                <p class="eyebrow">My professional journey</p>
+                <h2 class="section-title">Experience & <span class="accent">Training</span></h2>
+
+                <p class="section-description">
+                    Practical learning and professional development.
+                </p>
+
+                <div class="timeline">
+                    <article class="card experience-card reveal">
+                        <h3>Mobile Application Development Internship</h3>
+                        <p><strong>Mountreach Solution pvt ltd, Amravati</strong></p>
+                        <span class="duration">3 Months</span>
+                        <p>
+                            Practical experience in mobile application
+                            development. Update this description with the
+                            specific tasks and technologies you used during
+                            your internship.
+                        </p>
+                    </article>
+
+                    <article class="card experience-card reveal">
+                        <h3>Employability Skills Development</h3>
+                        <p><strong>Mahindra / Naandi Foundation (2week)</strong></p>
+                        <p>
+                            Completed employability skills training through Mahindra / Naandi Foundation, covering interview preparation, professional grooming, communication skills, personality development, resume preparation, and workplace readiness.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section id="certifications">
+            <div class="container">
+                <p class="eyebrow">Learning achievements</p>
+                <h2 class="section-title">My <span class="accent">Certifications</span></h2>
+
+                <p class="section-description">
+                    Training certificates and badges earned through learning
+                    and job simulation programmes.
+                </p>
+
+                <div class="grid">
+                    <article class="card certificate-card reveal">
+                        <div class="certificate-icon">🤖</div>
+                        <h3>Generative AI Badge</h3>
+                        <p>
+                            Google Cloud — Generative AI learning badge.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Google Cloud</span>
+                            <span class="tag">Generative AI</span>
+                        </div>
+                    </article>
+
+                    <article class="card certificate-card reveal">
+                        <div class="certificate-icon">📈</div>
+                        <h3>GenAI Powered Data Analytics</h3>
+                        <p>
+                            Tata job simulation completed through Forage,
+                            focused on data analytics and generative AI.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">AI Analytics</span>
+                            <span class="tag">AI Strategy</span>
+                            <span class="tag">Data Analytics</span>
+                            <span class="tag">Data Exploratory Data Analysis</span>
+                        </div>
+                    </article>
+
+                    <article class="card certificate-card reveal">
+                        <div class="certificate-icon">💼</div>
+                        <h3>Employability Skills Development</h3>
+                        <p>
+                            Mahindra / Naandi Foundation training certificate.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Employability</span>
+                            <span class="tag">Skill Development</span>
+                        </div>
+                    </article>
+
+                    <article class="card certificate-card reveal">
+                        <div class="certificate-icon">🤖</div>
+                        <h3>Basic of Artificial</h3>
+                        <p>
+                            Uniathena.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Basic AI</span>
+                            <span class="tag">Fundamentals</span>
+                        </div>
+                    </article>
+                    <article class="card certificate-card reveal">
+                        <div class="certificate-icon">🐍</div>
+                        <h3>Python Essential</h3>
+                        <p>
+                            Cisco Networking Academy.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Programming</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education">
+            <div class="container">
+                <p class="eyebrow">Academic background</p>
+                <h2 class="section-title">My <span class="accent">Education</span></h2>
+
+                <div class="card education-card reveal">
+                    <h3>BE Computer Engineering</h3>
+                    <p>Second Year — Currently Pursuing</p>
+                    <p>Building knowledge in software development,
+                       programming, and computer engineering.</p>
+                </div>
+                <div class="card education-card reveal">
+                    <h3>Diploma in Computer Engineering</h3>
+<p>Status: Completed</p>
+<p>Percentage: 86%</p>
+<p>College: Manav School of Polytechnic, Akola</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="container">
+                <p class="eyebrow">Let's connect</p>
+                <h2 class="section-title">Contact <span class="accent">Me</span></h2>
+
+                <p class="section-description">
+                    Interested in my work? Contact me about opportunities,
+                    projects, or professional collaboration.
+                </p>
+
+                <div class="contact-grid">
+                    <div class="card reveal">
+                        <h3>Contact Information</h3>
+
+                        <div class="contact-item">
+                            <span>Email</span>
+                            <a href="mailto:YOUR_EMAIL@example.com">
+                                shrutipatode88@gmail.com
+                            </a>
+                        </div>
+
+                        <div class="contact-item">
+                            <span>LinkedIn</span>
+                            <a href="https://www.linkedin.com/in/shruti-patode-8a777839a"
+                               target="_blank" rel="noopener noreferrer">
+                                Visit my LinkedIn ↗
+                            </a>
+                        </div>
+
+                        <div class="contact-item">
+                            <span>GitHub</span>
+                            <a href="https://github.com/"
+                               target="_blank" rel="noopener noreferrer">
+                                GitHub profile ↗
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© <span id="year"></span> Shruti Patode | Built with HTML, CSS & JavaScript</p>
+    </footer>
+
+    <script>
+        // Mobile navigation menu
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("open");
+
+            menuBtn.textContent = isOpen ? "✕" : "☰";
+            menuBtn.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        // Close the menu after clicking a link
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("open");
+                menuBtn.textContent = "☰";
+                menuBtn.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        // Automatically update the year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // Reveal sections when they enter the screen
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll(".reveal").forEach(function (element) {
+            observer.observe(element);
+        });
+
+    </script>
+
+</body>
+</html>
